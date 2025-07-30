@@ -24,12 +24,6 @@ public class Query extends QueryAbstract {
   private static final String GET_USER_SQL = "SELECT * FROM User_cartierc WHERE username = ?";
   private PreparedStatement getUserStmt;
 
-  private static final String DEL_USER_SQL = "DELETE FROM User_cartierc";
-  private PreparedStatement delUsersStmt;
-
-  private static final String DEL_RES_SQL = "DELETE FROM Reservation_cartierc";
-  private PreparedStatement delResStmt;
-
   private static final String INSERT_USER_SQL = "INSERT INTO User_cartierc VALUES (?, ?, ?)";
   private PreparedStatement insertUserStmt;
 
@@ -106,8 +100,10 @@ public class Query extends QueryAbstract {
   public void clearTables() {
     try {
       // TODO: YOUR CODE HERE
-      delResStmt.executeUpdate();
-      delUsersStmt.executeUpdate();
+      Statement stmt = conn.createStatement();
+      stmt.executeUpdate("DELETE FROM Reservation_cartierc");
+      stmt.executeUpdate("DELETE FROM User_cartierc");
+      stmt.close();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -121,8 +117,6 @@ public class Query extends QueryAbstract {
 
     // TODO: YOUR CODE HERE
     getUserStmt = conn.prepareStatement(GET_USER_SQL);
-    delUsersStmt = conn.prepareStatement(DEL_USER_SQL);
-    delResStmt = conn.prepareStatement(DEL_RES_SQL);
     insertUserStmt = conn.prepareStatement(INSERT_USER_SQL);
     directStmt = conn.prepareStatement(DIRECT_SQL);
     indirectStmt = conn.prepareStatement(INDIRECT_SQL);
