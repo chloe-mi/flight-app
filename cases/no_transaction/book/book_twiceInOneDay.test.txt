@@ -1,0 +1,22 @@
+# Attempt to book two itineraries on same day.
+
+# commands to execute:
+create testuser testpw 1000
+login testuser testpw
+search "Seattle, WA" "Boston, MA" 1 1 2
+book 0
+book 1
+quit
+*
+
+# expected output:
+Created user testuser
+Logged in as testuser
+Itinerary 0: 1 flight(s), 299 minutes
+ID: 3510 Day: 1 Carrier: AS Number: 306 Origin: Seattle, WA Dest: Boston, MA Duration: 299 Capacity: 48 Price: 555
+Itinerary 1: 1 flight(s), 300 minutes
+ID: 4166 Day: 1 Carrier: B6 Number: 198 Origin: Seattle, WA Dest: Boston, MA Duration: 300 Capacity: 379 Price: 412
+Booked flight(s), reservation ID: 1
+You cannot book two flights in the same day
+Goodbye
+*

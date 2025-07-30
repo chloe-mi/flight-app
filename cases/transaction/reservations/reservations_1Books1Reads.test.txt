@@ -1,0 +1,90 @@
+# 1 user in 2 terminals.
+# 1 terminal books a reservation.
+# 1 terminal reads reservation (may or may not be booked yet).
+
+# TERMINAL 1
+# commands:
+create user1 pw1 1000
+login user1 pw1
+search "New York, NY" "Boston, MA" 0 2 2
+book 1
+quit
+*
+
+# expected output
+# scenario 1/4 succeeds in creation, books first
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# scenario 2/4 succeeds in creation, books after
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# scenario 3/4 fails in creation, books first
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# scenario 4/4 fails in creation, books after
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+*
+
+
+# TERMINAL 2
+# commands:
+create user1 pw1 1000
+login user1 pw1
+reservations
+quit
+*
+
+# scenario 1/4 fails in creation, reads after
+Failed to create user
+Logged in as user1
+Reservation 1 paid: false:
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Goodbye
+|
+# scenario 2/4 fails in creation, reads before
+Failed to create user
+Logged in as user1
+No reservations found
+Goodbye
+|
+# scenario 3/4 succeds in creation, reads after
+Created user user1
+Logged in as user1
+Reservation 1 paid: false:
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Goodbye
+|
+# scenario 4/4 succeeds in creation, reads before
+Created user user1
+Logged in as user1
+No reservations found
+Goodbye
+*

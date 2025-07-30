@@ -1,0 +1,203 @@
+# 1 user tries to pay for same reservation from 2 itineraries.
+# Only one terminal succeeds.
+
+# TERMINAL 1
+# commands:
+create user1 pw1 1000
+login user1 pw1
+search "New York, NY" "Boston, MA" 0 2 2
+book 1
+pay 1
+quit
+*
+
+# expected output
+# scenario 1/8 succeeds in creation, succeeds in booking, succeeds in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 587
+Goodbye
+|
+# scenario 2/8 succeeds in creation, succeeds in booking, fails in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+|
+# scenario 3/8 succeeds in creation, fails in booking, succeeds in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Paid reservation: 1 remaining balance: 587
+Goodbye
+|
+# scenario 4/8 fails in creation, succeeds in booking, succeeds in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 587
+Goodbye
+|
+# scenario 5/8 succeeds in creation, fails in booking, fails in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+|
+# scenario 6/8 fails in creation, succeeds in booking, fails in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+|
+# scenario 7/8 fails in creation, fails in booking, succeeds in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Paid reservation: 1 remaining balance: 587
+Goodbye
+|
+# scenario 8/8 fails in creation, fails in booking, fails in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+*
+
+
+# TERMINAL 2
+# commands:
+create user1 pw1 1000
+login user1 pw1
+search "New York, NY" "Boston, MA" 0 2 2
+book 1
+pay 1
+quit
+*
+
+# expected output
+# scenario 1/8 fails in creation, fails in booking, fails in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+|
+# scenario 2/8 fails in creation, fails in booking, succeeds in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Paid reservation: 1 remaining balance: 587
+Goodbye
+|
+# scenario 3/8 fails in creation, succeeds in booking, fails in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+|
+# scenario 4/8 succeeds in creation, fails in booking, fails in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+|
+# scenario 5/8 fails in creation, succeeds in booking, succeeds in paying:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 587
+Goodbye
+|
+# scenario 6/8 succeeds in creation, fails in booking, succeeds in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Paid reservation: 1 remaining balance: 587
+Goodbye
+|
+# scenario 7/8 succeeds in creation, succeeds in booking, fails in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Cannot find unpaid reservation 1 under user: user1
+Goodbye
+|
+# scenario 8/8 succeeds in creation, succeeds in booking, succeeds in paying:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 587
+Goodbye
+*

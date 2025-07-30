@@ -1,0 +1,104 @@
+# 2 terminals login as same user. 
+# In terminals, user tries to book for different itineraries, 
+# but on same day, so 1 should succeed and 1 should fail.
+
+# TERMINAL 1
+# commands:
+create user1 pw1 1000
+login user1 pw1
+search "New York, NY" "Boston, MA" 0 2 2
+book 0
+quit
+* 
+
+# expected output
+# scenario 1/4 succeeds in creation, succeeds in booking:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# scenario 2/4 succeeds in creation, fails in booking:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booking failed
+Goodbye
+|
+# scenario 3/4 fails in creation, succeeds in booking:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# scenario 3/4 fails in creation, fails in booking:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Goodbye
+*
+
+# TERMINAL 2
+create user1 pw1 1000
+login user1 pw1
+search "New York, NY" "Boston, MA" 0 2 2
+book 1
+quit
+* 
+
+# expected output
+# scenario 1/4 fails in creation, fails in booking:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Goodbye
+|
+# scenario 2/4 fails in creation, succeeds in booking:
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# scenario 3/4 succeeds in creation, fails in booking:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+You cannot book two flights in the same day
+Goodbye
+|
+# scenario 3/4 succeeds in creation, succeeds in booking:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 55 minutes
+ID: 21816 Day: 2 Carrier: B6 Number: 2832 Origin: New York, NY Dest: Boston, MA Duration: 55 Capacity: 0 Price: 394
+Itinerary 1: 1 flight(s), 59 minutes
+ID: 37244 Day: 2 Carrier: YX Number: 4430 Origin: New York, NY Dest: Boston, MA Duration: 59 Capacity: 1 Price: 413
+Booked flight(s), reservation ID: 1
+Goodbye
+*

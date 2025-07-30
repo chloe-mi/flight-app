@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="flightapp.FlightServiceTest" time="1.977" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/surefire-booter/3.0.0-M5/surefire-booter-3.0.0-M5.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/surefire-api/3.0.0-M5/surefire-api-3.0.0-M5.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/surefire-logger-api/3.0.0-M5/surefire-logger-api-3.0.0-M5.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/surefire-shared-utils/3.0.0-M4/surefire-shared-utils-3.0.0-M4.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/surefire-extensions-spi/3.0.0-M5/surefire-extensions-spi-3.0.0-M5.jar:/homes/iws/cartierc/cse344-hw/flightapp/target/test-classes:/homes/iws/cartierc/cse344-hw/flightapp/target/classes:/homes/iws/cartierc/.m2/repository/junit/junit/4.13/junit-4.13.jar:/homes/iws/cartierc/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/homes/iws/cartierc/.m2/repository/org/postgresql/postgresql/42.7.5/postgresql-42.7.5.jar:/homes/iws/cartierc/.m2/repository/org/checkerframework/checker-qual/3.48.3/checker-qual-3.48.3.jar:/homes/iws/cartierc/.m2/repository/org/mybatis/mybatis/3.5.7/mybatis-3.5.7.jar:/homes/iws/cartierc/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar:/homes/iws/cartierc/cse344-hw/flightapp/distributed.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/surefire-junit4/3.0.0-M5/surefire-junit4-3.0.0-M5.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/common-java5/3.0.0-M5/common-java5-3.0.0-M5.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/common-junit3/3.0.0-M5/common-junit3-3.0.0-M5.jar:/homes/iws/cartierc/.m2/repository/org/apache/maven/surefire/common-junit4/3.0.0-M5/common-junit4-3.0.0-M5.jar"/>
+    <property name="flightapp.testcase" value="cases"/>
+    <property name="java.vm.vendor" value="Red Hat, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="flightapp.testcases" value="cases/transaction/book/book_2Users1FlightNoCapacity.test.txt"/>
+    <property name="java.vendor.url" value="https://www.redhat.com/"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-21.0.7.0.6-1.el9.x86_64/lib"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /homes/iws/cartierc/cse344-hw/flightapp/target/surefire 2025-05-29T15-12-22_771-jvmRun1 surefire10715233504339996436tmp surefire_013788480537081366175tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="flightapp.FlightServiceTest"/>
+    <property name="surefire.test.class.path" value="/homes/iws/cartierc/cse344-hw/flightapp/target/test-classes:/homes/iws/cartierc/cse344-hw/flightapp/target/classes:/homes/iws/cartierc/.m2/repository/junit/junit/4.13/junit-4.13.jar:/homes/iws/cartierc/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/homes/iws/cartierc/.m2/repository/org/postgresql/postgresql/42.7.5/postgresql-42.7.5.jar:/homes/iws/cartierc/.m2/repository/org/checkerframework/checker-qual/3.48.3/checker-qual-3.48.3.jar:/homes/iws/cartierc/.m2/repository/org/mybatis/mybatis/3.5.7/mybatis-3.5.7.jar:/homes/iws/cartierc/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar:/homes/iws/cartierc/cse344-hw/flightapp/distributed.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/homes/iws/cartierc"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="/usr/lib/jvm/java-21-openjdk-21.0.7.0.6-1.el9.x86_64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/homes/iws/cartierc/cse344-hw/flightapp"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.7+6-LTS"/>
+    <property name="user.name" value="cartierc"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.14.0-503.33.1.el9_5.x86_64"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="(Red_Hat-21.0.7.0.6-1)"/>
+    <property name="localRepository" value="/homes/iws/cartierc/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://access.redhat.com/support/cases/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="21.0.7"/>
+    <property name="user.dir" value="/homes/iws/cartierc/cse344-hw/flightapp"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Red Hat, Inc."/>
+    <property name="java.vm.version" value="21.0.7+6-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="runTest[0]" classname="flightapp.FlightServiceTest" time="1.34">
+    <system-out><![CDATA[Running test setup...
+... using dbconn.properties for test credentials
+... attempting to connect as cartierc@flights to server localhost
+... resetting database (ie, dropping all tables with suffix: cartierc)
+... running createTables.sql
+
+Starting tests
+Running test file: /homes/iws/cartierc/cse344-hw/flightapp/cases/transaction/book/book_2Users1FlightNoCapacity.test.txt
+]]></system-out>
+    <system-err><![CDATA[org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "reservation_cartierc_pkey"
+  Detail: Key (rid)=(1) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:155)
+	at flightapp.Query.transaction_book(Query.java:398)
+	at flightapp.QueryAbstract.book(QueryAbstract.java:160)
+	at flightapp.FlightService.execute(FlightService.java:67)
+	at flightapp.FlightServiceTest$Session.call(FlightServiceTest.java:168)
+	at flightapp.FlightServiceTest$Session.call(FlightServiceTest.java:115)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+]]></system-err>
+  </testcase>
+</testsuite>

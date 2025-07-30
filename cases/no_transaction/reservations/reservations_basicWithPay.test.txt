@@ -1,0 +1,95 @@
+# Verify that 2 paid indirect itineraries are outputted as paid.
+
+# commands:
+create user1 user1 100000
+login user1 user1
+search "Seattle, WA" "Boston, MA" 0 1 9
+book 8
+search "Seattle, WA" "Boston, MA" 0 3 9
+book 8
+search "Seattle, WA" "Boston, MA" 0 2 10
+book 9
+pay 1
+pay 3
+reservations
+quit
+*
+
+# expected command output:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 299 minutes
+ID: 3510 Day: 1 Carrier: AS Number: 306 Origin: Seattle, WA Dest: Boston, MA Duration: 299 Capacity: 48 Price: 555
+Itinerary 1: 1 flight(s), 300 minutes
+ID: 4166 Day: 1 Carrier: B6 Number: 198 Origin: Seattle, WA Dest: Boston, MA Duration: 300 Capacity: 379 Price: 412
+Itinerary 2: 1 flight(s), 301 minutes
+ID: 3276 Day: 1 Carrier: AS Number: 460 Origin: Seattle, WA Dest: Boston, MA Duration: 301 Capacity: 149 Price: 178
+Itinerary 3: 1 flight(s), 305 minutes
+ID: 5562 Day: 1 Carrier: DL Number: 459 Origin: Seattle, WA Dest: Boston, MA Duration: 305 Capacity: 246 Price: 428
+Itinerary 4: 1 flight(s), 307 minutes
+ID: 5572 Day: 1 Carrier: DL Number: 473 Origin: Seattle, WA Dest: Boston, MA Duration: 307 Capacity: 246 Price: 523
+Itinerary 5: 1 flight(s), 315 minutes
+ID: 2965 Day: 1 Carrier: AS Number: 424 Origin: Seattle, WA Dest: Boston, MA Duration: 315 Capacity: 222 Price: 449
+Itinerary 6: 1 flight(s), 328 minutes
+ID: 3009 Day: 1 Carrier: AS Number: 536 Origin: Seattle, WA Dest: Boston, MA Duration: 328 Capacity: 222 Price: 175
+Itinerary 7: 1 flight(s), 331 minutes
+ID: 4182 Day: 1 Carrier: B6 Number: 398 Origin: Seattle, WA Dest: Boston, MA Duration: 331 Capacity: 379 Price: 261
+Itinerary 8: 2 flight(s), 339 minutes
+ID: 5096 Day: 1 Carrier: DL Number: 953 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 187 Capacity: 199 Price: 144
+ID: 3722 Day: 1 Carrier: B6 Number: 836 Origin: Minneapolis, MN Dest: Boston, MA Duration: 152 Capacity: 153 Price: 139
+Booked flight(s), reservation ID: 1
+Itinerary 0: 1 flight(s), 309 minutes
+ID: 42414 Day: 3 Carrier: B6 Number: 198 Origin: Seattle, WA Dest: Boston, MA Duration: 309 Capacity: 379 Price: 252
+Itinerary 1: 1 flight(s), 313 minutes
+ID: 41179 Day: 3 Carrier: AS Number: 460 Origin: Seattle, WA Dest: Boston, MA Duration: 313 Capacity: 222 Price: 145
+Itinerary 2: 1 flight(s), 317 minutes
+ID: 41357 Day: 3 Carrier: AS Number: 424 Origin: Seattle, WA Dest: Boston, MA Duration: 317 Capacity: 222 Price: 179
+Itinerary 3: 1 flight(s), 318 minutes
+ID: 41167 Day: 3 Carrier: AS Number: 536 Origin: Seattle, WA Dest: Boston, MA Duration: 318 Capacity: 222 Price: 275
+Itinerary 4: 1 flight(s), 324 minutes
+ID: 42447 Day: 3 Carrier: B6 Number: 398 Origin: Seattle, WA Dest: Boston, MA Duration: 324 Capacity: 379 Price: 360
+Itinerary 5: 1 flight(s), 327 minutes
+ID: 43777 Day: 3 Carrier: DL Number: 473 Origin: Seattle, WA Dest: Boston, MA Duration: 327 Capacity: 246 Price: 423
+Itinerary 6: 1 flight(s), 329 minutes
+ID: 41714 Day: 3 Carrier: AS Number: 306 Origin: Seattle, WA Dest: Boston, MA Duration: 329 Capacity: 48 Price: 568
+Itinerary 7: 1 flight(s), 339 minutes
+ID: 43739 Day: 3 Carrier: DL Number: 459 Origin: Seattle, WA Dest: Boston, MA Duration: 339 Capacity: 246 Price: 339
+Itinerary 8: 2 flight(s), 344 minutes
+ID: 42651 Day: 3 Carrier: DL Number: 953 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 187 Capacity: 199 Price: 560
+ID: 41894 Day: 3 Carrier: B6 Number: 836 Origin: Minneapolis, MN Dest: Boston, MA Duration: 157 Capacity: 153 Price: 169
+Booked flight(s), reservation ID: 2
+Itinerary 0: 1 flight(s), 306 minutes
+ID: 23800 Day: 2 Carrier: DL Number: 473 Origin: Seattle, WA Dest: Boston, MA Duration: 306 Capacity: 246 Price: 108
+Itinerary 1: 1 flight(s), 307 minutes
+ID: 22271 Day: 2 Carrier: B6 Number: 198 Origin: Seattle, WA Dest: Boston, MA Duration: 307 Capacity: 379 Price: 269
+Itinerary 2: 1 flight(s), 309 minutes
+ID: 23667 Day: 2 Carrier: DL Number: 474 Origin: Seattle, WA Dest: Boston, MA Duration: 309 Capacity: 246 Price: 150
+Itinerary 3: 1 flight(s), 314 minutes
+ID: 20909 Day: 2 Carrier: AS Number: 460 Origin: Seattle, WA Dest: Boston, MA Duration: 314 Capacity: 222 Price: 503
+Itinerary 4: 1 flight(s), 314 minutes
+ID: 21610 Day: 2 Carrier: AS Number: 306 Origin: Seattle, WA Dest: Boston, MA Duration: 314 Capacity: 48 Price: 155
+Itinerary 5: 1 flight(s), 319 minutes
+ID: 21416 Day: 2 Carrier: AS Number: 424 Origin: Seattle, WA Dest: Boston, MA Duration: 319 Capacity: 48 Price: 228
+Itinerary 6: 1 flight(s), 322 minutes
+ID: 22260 Day: 2 Carrier: B6 Number: 398 Origin: Seattle, WA Dest: Boston, MA Duration: 322 Capacity: 379 Price: 257
+Itinerary 7: 1 flight(s), 324 minutes
+ID: 23662 Day: 2 Carrier: DL Number: 459 Origin: Seattle, WA Dest: Boston, MA Duration: 324 Capacity: 246 Price: 533
+Itinerary 8: 1 flight(s), 330 minutes
+ID: 21176 Day: 2 Carrier: AS Number: 536 Origin: Seattle, WA Dest: Boston, MA Duration: 330 Capacity: 149 Price: 244
+Itinerary 9: 2 flight(s), 339 minutes
+ID: 22409 Day: 2 Carrier: DL Number: 949 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 180 Capacity: 199 Price: 391
+ID: 22432 Day: 2 Carrier: DL Number: 2614 Origin: Minneapolis, MN Dest: Boston, MA Duration: 159 Capacity: 199 Price: 560
+Booked flight(s), reservation ID: 3
+Paid reservation: 1 remaining balance: 99717
+Paid reservation: 3 remaining balance: 98766
+Reservation 1 paid: true:
+ID: 5096 Day: 1 Carrier: DL Number: 953 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 187 Capacity: 199 Price: 144
+ID: 3722 Day: 1 Carrier: B6 Number: 836 Origin: Minneapolis, MN Dest: Boston, MA Duration: 152 Capacity: 153 Price: 139
+Reservation 2 paid: false:
+ID: 42651 Day: 3 Carrier: DL Number: 953 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 187 Capacity: 199 Price: 560
+ID: 41894 Day: 3 Carrier: B6 Number: 836 Origin: Minneapolis, MN Dest: Boston, MA Duration: 157 Capacity: 153 Price: 169
+Reservation 3 paid: true:
+ID: 22409 Day: 2 Carrier: DL Number: 949 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 180 Capacity: 199 Price: 391
+ID: 22432 Day: 2 Carrier: DL Number: 2614 Origin: Minneapolis, MN Dest: Boston, MA Duration: 159 Capacity: 199 Price: 560
+Goodbye
+*

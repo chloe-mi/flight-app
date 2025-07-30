@@ -1,0 +1,49 @@
+# Verify that if itineraries are tied for total duration, then the smaller first fid is prioritized
+# (Explaining output: itineraries 13 and 14 have same duration 342, 
+#  so we prioritize showing the itinerary with the smaller fid for the first flight)
+
+# commands to execute:
+search "Seattle, WA" "Boston, MA" 0 1 15
+quit
+*
+
+# expected output:
+Itinerary 0: 1 flight(s), 299 minutes
+ID: 3510 Day: 1 Carrier: AS Number: 306 Origin: Seattle, WA Dest: Boston, MA Duration: 299 Capacity: 48 Price: 555
+Itinerary 1: 1 flight(s), 300 minutes
+ID: 4166 Day: 1 Carrier: B6 Number: 198 Origin: Seattle, WA Dest: Boston, MA Duration: 300 Capacity: 379 Price: 412
+Itinerary 2: 1 flight(s), 301 minutes
+ID: 3276 Day: 1 Carrier: AS Number: 460 Origin: Seattle, WA Dest: Boston, MA Duration: 301 Capacity: 149 Price: 178
+Itinerary 3: 1 flight(s), 305 minutes
+ID: 5562 Day: 1 Carrier: DL Number: 459 Origin: Seattle, WA Dest: Boston, MA Duration: 305 Capacity: 246 Price: 428
+Itinerary 4: 1 flight(s), 307 minutes
+ID: 5572 Day: 1 Carrier: DL Number: 473 Origin: Seattle, WA Dest: Boston, MA Duration: 307 Capacity: 246 Price: 523
+Itinerary 5: 1 flight(s), 315 minutes
+ID: 2965 Day: 1 Carrier: AS Number: 424 Origin: Seattle, WA Dest: Boston, MA Duration: 315 Capacity: 222 Price: 449
+Itinerary 6: 1 flight(s), 328 minutes
+ID: 3009 Day: 1 Carrier: AS Number: 536 Origin: Seattle, WA Dest: Boston, MA Duration: 328 Capacity: 222 Price: 175
+Itinerary 7: 1 flight(s), 331 minutes
+ID: 4182 Day: 1 Carrier: B6 Number: 398 Origin: Seattle, WA Dest: Boston, MA Duration: 331 Capacity: 379 Price: 261
+Itinerary 8: 2 flight(s), 339 minutes
+ID: 5096 Day: 1 Carrier: DL Number: 953 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 187 Capacity: 199 Price: 144
+ID: 3722 Day: 1 Carrier: B6 Number: 836 Origin: Minneapolis, MN Dest: Boston, MA Duration: 152 Capacity: 153 Price: 139
+Itinerary 9: 2 flight(s), 339 minutes
+ID: 5954 Day: 1 Carrier: DL Number: 812 Origin: Seattle, WA Dest: Detroit, MI Duration: 243 Capacity: 222 Price: 581
+ID: 5322 Day: 1 Carrier: DL Number: 1187 Origin: Detroit, MI Dest: Boston, MA Duration: 96 Capacity: 199 Price: 174
+Itinerary 10: 2 flight(s), 340 minutes
+ID: 3089 Day: 1 Carrier: AS Number: 417 Origin: Seattle, WA Dest: Cleveland, OH Duration: 251 Capacity: 222 Price: 494
+ID: 3702 Day: 1 Carrier: B6 Number: 2040 Origin: Cleveland, OH Dest: Boston, MA Duration: 89 Capacity: 0 Price: 565
+Itinerary 11: 2 flight(s), 340 minutes
+ID: 4383 Day: 1 Carrier: DL Number: 943 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 188 Capacity: 199 Price: 414
+ID: 3722 Day: 1 Carrier: B6 Number: 836 Origin: Minneapolis, MN Dest: Boston, MA Duration: 152 Capacity: 153 Price: 139
+Itinerary 12: 2 flight(s), 340 minutes
+ID: 5379 Day: 1 Carrier: DL Number: 758 Origin: Seattle, WA Dest: Detroit, MI Duration: 244 Capacity: 199 Price: 377
+ID: 5322 Day: 1 Carrier: DL Number: 1187 Origin: Detroit, MI Dest: Boston, MA Duration: 96 Capacity: 199 Price: 174
+Itinerary 13: 2 flight(s), 342 minutes
+ID: 4926 Day: 1 Carrier: DL Number: 949 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 190 Capacity: 199 Price: 141
+ID: 3722 Day: 1 Carrier: B6 Number: 836 Origin: Minneapolis, MN Dest: Boston, MA Duration: 152 Capacity: 153 Price: 139
+Itinerary 14: 2 flight(s), 342 minutes
+ID: 5096 Day: 1 Carrier: DL Number: 953 Origin: Seattle, WA Dest: Minneapolis, MN Duration: 187 Capacity: 199 Price: 144
+ID: 4711 Day: 1 Carrier: DL Number: 2649 Origin: Minneapolis, MN Dest: Boston, MA Duration: 155 Capacity: 199 Price: 440
+Goodbye
+*

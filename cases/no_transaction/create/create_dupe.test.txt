@@ -1,0 +1,13 @@
+# Verify creating an account with existing username returns error message
+
+# commands to execute:
+create user2 pwa 100
+create user2 pwb 50
+quit
+*
+
+# expected output from those commands:
+Created user user2
+Failed to create user
+Goodbye
+*

@@ -1,0 +1,11 @@
+# Verify logging in as user that hasn't been created returns an error message
+
+# commands to execute:
+login nonexistentusername nonexistentpw
+quit
+*
+
+# expected output:
+Login failed
+Goodbye
+*
